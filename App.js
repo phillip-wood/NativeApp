@@ -13,6 +13,9 @@ import SearchResults from './app/screens/2/SearchResults'
 import ShoeFocus from './app/screens/2/ShoeFocus'
 import ViewImage from './app/screens/2/ViewImage'
 
+//partThree
+// import ViewProfile from './app/screens/3/ViewProfile'
+
 export default function App() {
-  return <Home/>
+  return <ShoeFocus/>
 }

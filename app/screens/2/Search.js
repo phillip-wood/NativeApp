@@ -1,50 +1,50 @@
-import React from 'react'
-import { Button, StyleSheet, Text, SafeAreaView } from 'react-native'
+import React from "react"
+import { StyleSheet } from "react-native"
+import * as Yup from "yup"
 
-import colors from '../../config/colors'
+import {AppForm, AppFormPicker, SubmitButton} from "../../components/forms"
+import Screen from "../../components/Screen"
 
-export default function Search() {
+const Brands = [
+  { label: "Nike", value: 1 },
+  { label: "Jordan", value: 2 },
+  { label: "Converse", value: 3 },
+]
+
+const validationSchema = Yup.object().shape({
+  brand: Yup.object().required().nullable().label("Brand"),
+  model: Yup.object().required().nullable().label("Brand"),
+})
+
+function Search() {
   return (
-    <SafeAreaView style={styles.container} >
-      <Text style={styles.headerText} >BROWSE, BUY AND BUILD SHOE COLLECTIONS.</Text>
-      <Text style={styles.pickers}>Brand Picker</Text>
-      <Text style={styles.pickers}>Model Picker</Text>
-      <Text style={styles.pickers}>Sub-Model Picker</Text>
-      <Button style={styles.button} title='Search'/>
-    </SafeAreaView>
+    <Screen style={styles.container}>
+      <AppForm
+        initialValues={{
+          brand: null,
+          model: null,
+          submodel: null,
+          colorway: null,
+          condition: null,
+        }}
+        onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
+      >
+        <AppFormPicker items={Brands} name="brand" placeholder="Brand" />
+        <AppFormPicker items={Brands} name="model" placeholder="Model" />
+        <AppFormPicker items={Brands} name="submodel" placeholder="SubModel" />
+        <AppFormPicker items={Brands} name="colorway" placeholder="Colorway" />
+        <AppFormPicker items={Brands} name="condition" placeholder="Condition" />
+        <SubmitButton title="Search" />
+      </AppForm>
+    </Screen>
   )
 }
 
 const styles = StyleSheet.create({
-  
   container: {
-    flex: 1,
-    backgroundColor: colors.black ,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 10,
   },
-
-  headerText: {
-    flex: 1,
-    backgroundColor: colors.black,
-    color: '#F1F1F1',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  pickers: {
-    flex: 1,
-    backgroundColor: colors.white ,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: "80%",
-  },
-
-  button: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: "80%",
-  },
-
 })
+
+export default Search

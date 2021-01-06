@@ -4,6 +4,7 @@ import { View, Image, StyleSheet } from "react-native"
 import colors from "../../config/colors"
 import UserSnip from "../../components/UserSnip"
 import AppText from "../../components/AppText"
+import AppButton from "../../components/AppButton"
 
 function ShoeFocus(props) {
   return (
@@ -19,6 +20,8 @@ function ShoeFocus(props) {
             subTitle="2 Pair"
           />
         </View>
+
+        <AppButton title="Contact Owner"/>
       </View>
     </View>
   )

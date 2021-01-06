@@ -1,16 +1,17 @@
-import React from 'react'
-import { StyleSheet, SafeAreaView, Image, View, Text } from 'react-native'
+import React from "react"
+import { StyleSheet, Image, View, Text } from "react-native"
 
-import colors from '../../config/colors'
-import AppButton from '../../components/AppButton'
-import SearchSnip from '../../components/SearchSnip'
+import colors from "../../config/colors"
+import AppButton from "../../components/AppButton"
+import SearchSnip from "../../components/SearchSnip"
+import Screen from "../../components/Screen"
 
 export default function Home() {
   return (
-    <SafeAreaView style={styles.container} >
+    <Screen style={styles.container} >
         
         <View style={styles.logoContainer}>
-            <Image style={styles.image} source={require('../../assets/sneaked-logo-yellow.png')}/>
+            <Image style={styles.image} source={require("../../assets/sneaked-logo-yellow.png")}/>
         </View>
 
         <View style={styles.buttonsContainer}>
@@ -19,27 +20,24 @@ export default function Home() {
 
         <View style={styles.searchContainer}>
           <Text style={styles.text}>Last Search</Text>
-          <SearchSnip title='Nike'/>
+          <SearchSnip title="Nike"/>
           <Text style={styles.text}>Saved Searchs</Text>
-          <SearchSnip title='Jordons'/>
-          <SearchSnip title='ADIDAS'/>
+          <SearchSnip title="Jordons"/>
+          <SearchSnip title="ADIDAS"/>
         </View>
 
-    </SafeAreaView>
+    </Screen>
   )
 }
 
 const styles = StyleSheet.create({
   
   container: {
-    flex: 1,
     backgroundColor: colors.black,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
   },
 
   logoContainer: {
-    flex: .30,
+    flex: .25,
     backgroundColor: colors.black,
     paddingTop: 10,
     width: "100%",
@@ -49,26 +47,24 @@ const styles = StyleSheet.create({
   
   image: {
     width: "100%",
-    resizeMode: 'contain',
+    resizeMode: "contain",
     },
 
   text: {
     color: colors.white,
     fontSize: 20,
     fontWeight: "300",
-    paddingLeft: "10%",
-    paddingRight: "10%"
     },
   
   buttonsContainer: {
-    flex: .10,
+    flex: .15,
     backgroundColor: colors.black,
-    paddingTop: 10,
-    width: "80%",
+    paddingTop: 30,
+    width: "100%",
     },
   
   searchContainer: {
-    flex: .80,
+    flex: .60,
     backgroundColor: colors.black,
     paddingTop: 30,
     width: "100%",
