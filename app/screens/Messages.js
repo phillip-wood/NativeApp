@@ -1,8 +1,9 @@
-import React, { useState } from "react"
-import { FlatList, StyleSheet, View } from "react-native"
+import React from "react"
+import { FlatList, StyleSheet} from "react-native"
 
 import UserSnip from "../components/UserSnip"
 import Screen from "../components/Screen"
+import ListItemSeparator from "../components/ListItemSeparator"
 
 const messages = [
   {
@@ -31,7 +32,12 @@ function Messages(props) {
                 <UserSnip 
                     title={item.title}
                     subTitle={item.subTitle}
-                    image={item.image}/> } />
+                    image={item.image}
+                    onPress={() => console.log("Message Selected", item)}
+                    /> 
+                  }
+            ItemSeparatorComponent={ListItemSeparator}
+        />
     </Screen> 
   )
 }

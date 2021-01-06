@@ -1,14 +1,18 @@
 import React from 'react'
-import { View } from 'react-native'
+import { TextInput, View } from 'react-native'
 
-import WelcomeScreen from './app/screens/Welcome'
-import ViewImage from './app/screens/ViewImage'
-import AppButton from './app/components/AppButton'
-import Card from './app/components/Card'
-import ListDetails from './app/screens/ListDetails'
-import Messages from './app/screens/Messages'
+//partOne
+import Welcome from './app/screens/1/Welcome'
+import Login from './app/screens/1/Login'
+import Register from './app/screens/1/Register'
+
+//partTwo
+import Home from './app/screens/2/Home'
+import Search from './app/screens/2/Search'
+import SearchResults from './app/screens/2/SearchResults'
+import ShoeFocus from './app/screens/2/ShoeFocus'
+import ViewImage from './app/screens/2/ViewImage'
 
 export default function App() {
-  return <Messages/>
-
+  return <Home/>
 }
