@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sneak-dev-125055-authRole",
+      "UnauthRoleArn": "arn:aws:iam::270246338833:role/amplify-sneak-dev-125055-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::270246338833:role/amplify-sneak-dev-125055-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-sneak-dev-125055-deployment",
+      "UnauthRoleName": "amplify-sneak-dev-125055-unauthRole",
+      "StackName": "amplify-sneak-dev-125055",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:270246338833:stack/amplify-sneak-dev-125055/305d4650-5143-11eb-9bfa-024f83641462",
+      "AmplifyAppId": "d1x046z1n9h2pw"
+    },
+    "categories": {
+      "auth": {
+        "sneak91814465": {}
+      }
+    }
+  }
+}
