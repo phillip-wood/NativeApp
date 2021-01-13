@@ -1,0 +1,8 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "sneak",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-sneak-dev-125055-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/1e6a9f55a1304bb1d498d8db42a305935f3f9025"
+}

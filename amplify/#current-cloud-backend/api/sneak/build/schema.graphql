@@ -1,0 +1,163 @@
+type Sneaker {
+  id: ID!
+  brand: String!
+  model: String!
+  submodel: String!
+  colorway: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelSneakerConnection {
+  items: [Sneaker]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelSneakerFilterInput {
+  id: ModelIDInput
+  brand: ModelStringInput
+  model: ModelStringInput
+  submodel: ModelStringInput
+  colorway: ModelStringInput
+  and: [ModelSneakerFilterInput]
+  or: [ModelSneakerFilterInput]
+  not: ModelSneakerFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getSneaker(id: ID!): Sneaker
+  listSneakers(filter: ModelSneakerFilterInput, limit: Int, nextToken: String): ModelSneakerConnection
+}
+
+input CreateSneakerInput {
+  id: ID
+  brand: String!
+  model: String!
+  submodel: String!
+  colorway: String!
+}
+
+input UpdateSneakerInput {
+  id: ID!
+  brand: String
+  model: String
+  submodel: String
+  colorway: String
+}
+
+input DeleteSneakerInput {
+  id: ID
+}
+
+type Mutation {
+  createSneaker(input: CreateSneakerInput!, condition: ModelSneakerConditionInput): Sneaker
+  updateSneaker(input: UpdateSneakerInput!, condition: ModelSneakerConditionInput): Sneaker
+  deleteSneaker(input: DeleteSneakerInput!, condition: ModelSneakerConditionInput): Sneaker
+}
+
+input ModelSneakerConditionInput {
+  brand: ModelStringInput
+  model: ModelStringInput
+  submodel: ModelStringInput
+  colorway: ModelStringInput
+  and: [ModelSneakerConditionInput]
+  or: [ModelSneakerConditionInput]
+  not: ModelSneakerConditionInput
+}
+
+type Subscription {
+  onCreateSneaker: Sneaker @aws_subscribe(mutations: ["createSneaker"])
+  onUpdateSneaker: Sneaker @aws_subscribe(mutations: ["updateSneaker"])
+  onDeleteSneaker: Sneaker @aws_subscribe(mutations: ["deleteSneaker"])
+}
