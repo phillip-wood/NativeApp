@@ -1,7 +1,0 @@
-type Sneaker @model {
-  id: ID!
-  brand: String!
-  model: String!
-  submodel: String!
-  colorway: String!
-}
